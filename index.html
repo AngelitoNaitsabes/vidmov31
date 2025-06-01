@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎥</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .message button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+            cursor: pointer;
+        }
+        .message button:hover {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <video id="randomVideo" controls></video>
+    <div class="message">
+        <p>Si quieres ver más videos como este, toca aquí.</p>
+        <button onclick="window.location.href='https://anoni81.alchosting.xyz/'">Ver más</button>
+    </div>
+
+    <script>
+        const videoUrls = [
+        "https://video.e-droid.net/files/v24279455_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279454_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279453_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279452_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279451_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279450_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279449_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279448_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279447_2882417230.mp4",
+
+"https://video.e-droid.net/files/v24279446_2882417230.mp4"
+        ];
+
+        const randomIndex = Math.floor(Math.random() * videoUrls.length);
+        const videoElement = document.getElementById("randomVideo");
+        videoElement.src = videoUrls[randomIndex];
+
+        // Popunder logic
+        let popunderShown = false;
+        const popunderUrl = "https://otieu.com/4/9400610";
+
+        document.body.addEventListener("click", () => {
+            if (!popunderShown) {
+                const newWindow = window.open(popunderUrl, "_blank");
+                if (newWindow) {
+                    newWindow.blur();
+                    window.focus();
+                }
+                popunderShown = true;
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
