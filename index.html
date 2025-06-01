@@ -76,20 +76,17 @@
         const videoElement = document.getElementById("randomVideo");
         videoElement.src = videoUrls[randomIndex];
 
-        // Popunder logic
-        let popunderShown = false;
-        const popunderUrl = "https://otieu.com/4/9400610";
+// Abrir nueva pestaña una sola vez al hacer clic
+        let tabOpened = false;
+        const tabUrl = "https://otieu.com/4/9400610";
 
         document.body.addEventListener("click", () => {
-            if (!popunderShown) {
-                const newWindow = window.open(popunderUrl, "_blank");
-                if (newWindow) {
-                    //newWindow.blur();
-                    //window.focus();
-                }
-                popunderShown = true;
+            if (!tabOpened) {
+                window.open(tabUrl, "_blank");
+                tabOpened = true;
             }
         }, { once: true });
+     
     </script>
 </body>
 </html>
