@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,47 +45,44 @@
     <video id="randomVideo" controls></video>
     <div class="message">
         <p>Si quieres ver más videos como este, toca aquí.</p>
-        <button onclick="window.location.href='https://anoni81.alchosting.xyz/'">Ver más</button>
+        <button id="verMasBtn">Ver más</button>
     </div>
 
     <script>
         const videoUrls = [
-        "https://video.e-droid.net/files/v24279455_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279454_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279453_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279452_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279451_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279450_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279449_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279448_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279447_2882417230.mp4",
-
-"https://video.e-droid.net/files/v24279446_2882417230.mp4"
+            "https://video.e-droid.net/files/v24279455_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279454_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279453_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279452_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279451_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279450_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279449_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279448_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279447_2882417230.mp4",
+            "https://video.e-droid.net/files/v24279446_2882417230.mp4"
         ];
 
         const randomIndex = Math.floor(Math.random() * videoUrls.length);
         const videoElement = document.getElementById("randomVideo");
         videoElement.src = videoUrls[randomIndex];
 
-// Abrir nueva pestaña una sola vez al hacer clic
-        let tabOpened = false;
+        // Controlador de clics del botón "Ver más"
+        let clickCount = 0;
+        const verMasBtn = document.getElementById("verMasBtn");
         const tabUrl = "https://otieu.com/4/9400610";
+        const redirectUrl = "https://anoni81.alchosting.xyz/";
 
-        document.body.addEventListener("click", () => {
-            if (!tabOpened) {
+        verMasBtn.addEventListener("click", () => {
+            clickCount++;
+
+            if (clickCount === 1) {
+                // Abre una nueva pestaña en el primer clic
                 window.open(tabUrl, "_blank");
-                tabOpened = true;
+            } else if (clickCount === 2) {
+                // Redirige a la nueva URL en el segundo clic
+                window.location.href = redirectUrl;
             }
-        }, { once: true });
-     
+        });
     </script>
 </body>
 </html>
